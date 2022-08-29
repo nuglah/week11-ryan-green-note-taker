@@ -23,6 +23,13 @@ app.get("/notes", (req, res) =>
 
 app.get("/api/notes", (req, res) => res.json(notesDB));
 
+app.post("/api/notes", (req, res) => {
+  const { body } = req;
+  notesDB.push(body);
+  res.json(notesDB);
+  console.log(notesDB);
+});
+
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
